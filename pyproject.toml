@@ -1,6 +1,6 @@
 [project]
 name = "function-timing-decorator"
-version = "0.1.1"
+version = "0.1.2"
 description = "A professional-grade Python decorator to measure function execution time"
 authors = [
     { name="Gurnoor Singh Saini", email="sainigurnoor511@gmail.com" }

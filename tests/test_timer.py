@@ -1,15 +1,27 @@
-from function_timing_decorator import timeit
-import time
 import asyncio
+from function_timing_decorator.timer import timeit
 
-@timeit(tag="test")
-def test_sync():
-    time.sleep(0.1)
+@timeit(tag="Synchronous Function")
+def sync_function():
+    # Simulate some work
+    for _ in range(1000000):
+        pass
+    return "Sync function completed"
 
-@timeit(tag="test_async")
-async def test_async():
-    await asyncio.sleep(0.1)
+@timeit(tag="Async Function")
+async def async_function():
+    # Simulate some async work
+    await asyncio.sleep(1)
+    return "Async function completed"
 
-def test_all():
-    test_sync()
-    asyncio.run(test_async())
+async def main():
+    # Test synchronous function
+    result1 = sync_function()
+    print(f"Result: {result1}")
+    
+    # Test asynchronous function
+    result2 = await async_function()
+    print(f"Result: {result2}")
+
+if __name__ == "__main__":
+    asyncio.run(main()) 
